@@ -1,0 +1,83 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 4px;
+    max-width: 65px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 1vw;
+    align-items: center;
+}
+
+.content p:hover {
+    cursor: help;
+}
+
+.calculateButton {
+    background-color: black;
+    color: silver;
+    font-size: bolder;
+    border-color: silver;
+    height: 40px;
+    width: 110px;
+    border-radius: 3px;
+
+}
+
+.calculateButton:hover {
+    cursor: pointer;
+    background-color: silver;
+    color: black;
+    border-color: black;
+}
+
+.ResetButton {
+    background-color: darkred;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.ResetButton:hover {
+    background-color: whitesmoke;
+    color: darkred;
+    border-color: darkred;
+
+}
+
+.ButtonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 3vh;
+}
+
+.HoverQuestionmark:hover {
+    cursor: help;
+}
