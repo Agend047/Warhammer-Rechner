@@ -81,3 +81,30 @@ main {
 .HoverQuestionmark:hover {
     cursor: help;
 }
+
+
+/* Footer */
+.big_logo {
+    width: 430px;
+    height: auto;
+}
+
+footer {
+    margin-top: 96px;
+    background-color: black;
+    padding: 8px;
+    border: 10px;
+    border-color: #a0a0a0;
+    border-style: solid;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 0;
+    }
+
+    .big_logo {
+        width: 100%;
+    }
+}
