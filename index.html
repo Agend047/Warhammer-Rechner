@@ -1,0 +1,133 @@
+<html>
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kleiner TT-Rechner</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js">
+
+</script>
+
+
+<body>
+    <h1>Warhammer Rechner</h1>
+    <p>Dieses Programm rechnet aus, wie viel Schaden Angriffe im Tabletopspiel Warhammer 40k statsitisch gesehen
+        verursachen können.</p>
+    <p>Alle Felder müssen ausgefüllt werden, damit der Rechner funktioniert.</p>
+    <main>
+        <div class="content">
+            <p title="Gesamtzahl der Schüsse oder Attacks/Angriffe A (Im Nahkampf)">Anzahl der Angriffe</p>
+            <input id="inAttack" placeholder="A" maxlength="1" type="number" min="0" value="6">
+        </div>
+        <div class="content">
+            <p title="Höhe des BS oder WS (dt: KG/BF) je nach Anwendungsfall.">Höhe des Hit Rolls</p>
+            <input id="inHitRoll" placeholder="WS/BS" maxlength="1" type="number" min="0" value="4">
+            <input type="checkbox" id="hitRollReroll"> <label for="hitRollRerollCheck" class="HoverQuestionmark"
+                title="Wenn mit einberechnet werden soll, dass der Hit-Roll bei einem Fehlschlag erneut geworfen werden würde">Hit
+                Reroll</label>
+        </div>
+        <div class="content">
+            <p title="Strength/Stärke S der angreifenden Waffe">Stärke des Angriffs</p>
+            <input id="inStrength" placeholder="S" maxlength="1" type="number" min="0" value="3">
+            <input type="checkbox" id="woundReroll"> <label for="woundReroll" class="HoverQuestionmark"
+                title="Wenn mit einberechnet werden soll, dass der Wund-Roll bei einem Fehlschlag erneut geworfen werden würde">Wound
+                Reroll</label>
+        </div>
+        <div class="content">
+            <p title="Toughness T (dt: Wiederstand W) des Ziels">Toughness des Ziels</p>
+            <input id="inTough" placeholder="T" maxlength="1" type="number" min="0" value="3">
+        </div>
+        <div class="content">
+            <p
+                title="Die Armour Penetration AP (dt: Durchschlag DS) der angreifenden Waffe. Wird mit dem Rüstungswurf verrechnet.">
+                Rüstungsdurchdringung</p>
+            <input id="inAP" placeholder="AP" maxlength="1" type="number" value="0">
+        </div>
+        <div class="content">
+            <p title="Der Basis Saving throw SV (dt: Rüstungswert RW) des Ziels. Wird mit der AP verrechnet.">
+                Rüstungswurf</p>
+            <input id="inSV" placeholder="SV" maxlength="1" type="number" min="0" value="5">
+        </div>
+        <div class="content">
+            <p title="Damage D der Waffe (dt: Schadenswert SW)">Schadensstärke der Waffe</p>
+            <input id="inWoundChar" placeholder="W" maxlength="1" type="number" min="0" value="1">
+        </div>
+    </main>
+    <section>
+
+        <input type="checkbox" id="lethalHitsCheck"> <label for="lethalHitsCheck" class="HoverQuestionmark"
+            title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
+            Hits</label>
+        <input type="checkbox" id="devastatingWoundsCheck"> <label for="devastatingWoundsCheck"
+            class="HoverQuestionmark"
+            title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal wund)">Devastating
+            Wounds</label>
+        <div class="ButtonDiv">
+            <button class="calculateButton" onclick="checkFields('')">Ausrechnen!</button>
+            <button class="ResetButton" onclick="reset('')">Reset</button>
+        </div>
+        <p id="resultTag">Ergebnis</p>
+    </section>
+
+    <h4>Vergleichswaffe</h4>
+    <main>
+        <div class="content">
+            <p title="Gesamtzahl der Schüsse oder Attacks/Angriffe A (Im Nahkampf)">Anzahl der Angriffe</p>
+            <input id="inAttack2" placeholder="A" maxlength="1" type="number" min="0" value="6">
+        </div>
+        <div class="content">
+            <p title="Höhe des BS oder WS (dt: KG/BF) je nach Anwendungsfall.">Höhe des Hit Rolls</p>
+            <input id="inHitRoll2" placeholder="WS/BS" maxlength="1" type="number" min="0" value="4">
+            <input type="checkbox" id="hitRollReroll2"> <label for="hitRollRerollCheck" class="HoverQuestionmark"
+                title="Wenn mit einberechnet werden soll, dass der Hit-Roll bei einem Fehlschlag erneut geworfen werden würde">Hit
+                Reroll</label>
+        </div>
+        <div class="content">
+            <p title="Strength/Stärke S der angreifenden Waffe">Stärke des Angriffs</p>
+            <input id="inStrength2" placeholder="S" maxlength="1" type="number" min="0" value="3">
+            <input type="checkbox" id="woundReroll2"> <label for="woundReroll" class="HoverQuestionmark"
+                title="Wenn mit einberechnet werden soll, dass der Wund-Roll bei einem Fehlschlag erneut geworfen werden würde">Wound
+                Reroll</label>
+        </div>
+        <div class="content">
+            <p title="Toughness T (dt: Wiederstand W) des Ziels">Toughness des Ziels</p>
+            <input id="inTough2" placeholder="T" maxlength="1" type="number" min="0" value="3">
+        </div>
+        <div class="content">
+            <p
+                title="Die Armour Penetration AP (dt: Durchschlag DS) der angreifenden Waffe. Wird mit dem Rüstungswurf verrechnet.">
+                Rüstungsdurchdringung</p>
+            <input id="inAP2" placeholder="AP" maxlength="1" type="number" value="0">
+        </div>
+        <div class="content">
+            <p title="Der Basis Saving throw SV (dt: Rüstungswert RW) des Ziels. Wird mit der AP verrechnet.">
+                Rüstungswurf</p>
+            <input id="inSV2" placeholder="SV" maxlength="1" type="number" min="0" value="5">
+        </div>
+        <div class="content">
+            <p title="Damage D der Waffe (dt: Schadenswert SW)">Schadensstärke der Waffe</p>
+            <input id="inWoundChar2" placeholder="W" maxlength="1" type="number" min="0" value="1">
+        </div>
+    </main>
+    <section>
+        <input type="checkbox" id="lethalHitsCheck2"> <label for="lethalHitsCheck2" class="HoverQuestionmark"
+            title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
+            Hits</label>
+        <input type="checkbox" id="devastatingWoundsCheck2"> <label for="devastatingWoundsCheck2"
+            class="HoverQuestionmark"
+            title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal Wound)">Devastating
+            Wounds</label>
+        <div class="ButtonDiv">
+            <button class="calculateButton" onclick="checkFields('2')">Ausrechnen!</button>
+            <button class="ResetButton" onclick="reset('2')">Reset</button>
+        </div>
+        <p id="resultTag2">Ergebnis</p>
+    </section>
+
+
+</body>
+
+</html>
