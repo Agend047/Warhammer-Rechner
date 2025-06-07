@@ -1,16 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="de">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleiner TT-Rechner</title>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kleiner TT-Rechner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='script.js'>
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js">
-
-</script>
-
+    </script>
+</head>
 
 <body>
     <h1>Warhammer Rechner</h1>
@@ -19,6 +20,7 @@
     <p>Alle Felder müssen ausgefüllt werden, damit der Rechner funktioniert.</p>
     <main>
         <div class="content">
+
             <p title="Gesamtzahl der Schüsse oder Attacks/Angriffe A (Im Nahkampf)">Anzahl der Angriffe</p>
             <input id="inAttack" placeholder="A" maxlength="1" type="number" min="0" value="6">
         </div>
@@ -43,6 +45,7 @@
         <div class="content">
             <p
                 title="Die Armour Penetration AP (dt: Durchschlag DS) der angreifenden Waffe. Wird mit dem Rüstungswurf verrechnet.">
+
                 Rüstungsdurchdringung</p>
             <input id="inAP" placeholder="AP" maxlength="1" type="number" value="0">
         </div>
@@ -57,7 +60,6 @@
         </div>
     </main>
     <section>
-
         <input type="checkbox" id="lethalHitsCheck"> <label for="lethalHitsCheck" class="HoverQuestionmark"
             title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
             Hits</label>
@@ -68,10 +70,10 @@
         <div class="ButtonDiv">
             <button class="calculateButton" onclick="checkFields('')">Ausrechnen!</button>
             <button class="ResetButton" onclick="reset('')">Reset</button>
+
         </div>
         <p id="resultTag">Ergebnis</p>
     </section>
-
     <h4>Vergleichswaffe</h4>
     <main>
         <div class="content">
@@ -127,7 +129,12 @@
         <p id="resultTag2">Ergebnis</p>
     </section>
 
-
+    <footer>
+        <a href="https://niklas-schneider.developerakademie.net/myProjects/">
+            <img class="big_logo" src="images/LOGO_Transparent.png" alt="Drachenschrimptaverne"
+                title="Unser Gaming-Logo! Gefällt es dir? Eines Tages werde ich unter diesem Symbol ein Videospiel herausbringen!">
+        </a>
+    </footer>
 </body>
 
 </html>
