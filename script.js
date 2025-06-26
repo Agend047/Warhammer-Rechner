@@ -27,6 +27,7 @@ function checkFields(ident) {
         }
         if (document.getElementById('inAttack' + ident).value < 0) { document.getElementById('inAttack' + ident).value = 1 };
         if (document.getElementById('inHitRoll' + ident).value <= 0) { document.getElementById('inHitRoll' + ident).value = 1 };
+        if (document.getElementById('sustainedHitsNumber' + ident).value <= 0 || document.getElementById('sustainedHitsNumber' + ident).value == "") { document.getElementById('sustainedHitsNumber' + ident).value = 0 };
         calculate(ident);
     }
 }
@@ -39,20 +40,24 @@ function checkFields(ident) {
 function calculate(ident) {
     let lethalHitsBool = document.getElementById('lethalHitsCheck' + ident).checked;
     let devastatingWoundsBool = document.getElementById('devastatingWoundsCheck' + ident).checked;
-    // let sustainedHitsX = document.getElementById('sustainedHitsNumber' + ident);
+    let sustainedHitsX = document.getElementById('sustainedHitsNumber' + ident).value;
 
     let hits = Number(getHittingAttacks(ident));
-    let additionalWounds = 0;
+    let lethalHitWounds = 0;
+    let sustainedHits = 0;
 
-
-    if (lethalHitsBool) {
-        additionalWounds = getLethalHits(hits, ident);
-        hits = hits - additionalWounds;
-        console.log("lethalHits: " + additionalWounds);
+    if (sustainedHitsX > 0) {
+        sustainedHits = getOneOf6FromHits(hits, ident) * sustainedHitsX
     }
 
-    let woundingAttacks = Number(getWounding(hits, ident) + additionalWounds);
-    console.log("woundingAttacks: " + woundingAttacks);
+    if (lethalHitsBool) {
+        lethalHitWounds = getOneOf6FromHits(hits, ident);
+        hits = hits - lethalHitWounds;
+    }
+
+
+
+    let woundingAttacks = Number(getWounding(hits + sustainedHits, ident));
 
     let mortalWounds = 0;
     let mortalWoundsDamage = 0;
@@ -61,6 +66,8 @@ function calculate(ident) {
         woundingAttacks = woundingAttacks - mortalWounds;
         mortalWoundsDamage = calculateMortalWoundsDamage(mortalWounds, ident);
     }
+
+    woundingAttacks = woundingAttacks + lethalHitWounds;
 
     let woundsAttacks = calculateDamage(woundingAttacks, ident);
 
@@ -177,13 +184,14 @@ function getWoundRoll(ident) {
     };
 };
 
+
 /**
  * Gets amount on lethal hits
  * @param {Number} hits Amount of successfull hitting dices
  * @param {String} ident Identificator
  * @returns 
  */
-function getLethalHits(hits, ident) {
+function getOneOf6FromHits(hits, ident) {
     let hitRoll = Number(document.getElementById('inHitRoll' + ident).value);
     return calculateOneOf6(hitRoll, hits);
 }

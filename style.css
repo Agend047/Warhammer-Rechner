@@ -82,6 +82,14 @@ main {
     cursor: help;
 }
 
+additionalEffectsArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 8vw;
+    margin-right: 8vw;
+}
+
 
 /* Footer */
 .big_logo {
@@ -106,5 +114,15 @@ footer {
 
     .big_logo {
         width: 100%;
+    }
+
+    additionalEffectsArea {
+        flex-direction: column;
+        margin-left: 0vw;
+        margin-right: 0vw;
+
+        div {
+            margin-top: 3vh;
+        }
     }
 }

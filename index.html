@@ -45,7 +45,6 @@
         <div class="content">
             <p
                 title="Die Armour Penetration AP (dt: Durchschlag DS) der angreifenden Waffe. Wird mit dem Rüstungswurf verrechnet.">
-
                 Rüstungsdurchdringung</p>
             <input id="inAP" placeholder="AP" maxlength="1" type="number" value="0">
         </div>
@@ -60,13 +59,26 @@
         </div>
     </main>
     <section>
-        <input type="checkbox" id="lethalHitsCheck"> <label for="lethalHitsCheck" class="HoverQuestionmark"
-            title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
-            Hits</label>
-        <input type="checkbox" id="devastatingWoundsCheck"> <label for="devastatingWoundsCheck"
-            class="HoverQuestionmark"
-            title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal wund)">Devastating
-            Wounds</label>
+        <additionalEffectsArea>
+            <div>
+                <input type="checkbox" id="lethalHitsCheck">
+                <label for="lethalHitsCheck" class="HoverQuestionmark"
+                    title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
+                    Hits</label>
+            </div>
+            <div>
+                <input type="checkbox" id="devastatingWoundsCheck">
+                <label for="devastatingWoundsCheck" class="HoverQuestionmark"
+                    title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal wund)">Devastating
+                    Wounds</label>
+            </div>
+            <div>
+                <input id="sustainedHitsNumber" placeholder="SH X" maxlength="1" type="number" min="0" value="0">
+                <label for="sustainedHitsNumber" class="HoverQuestionmark"
+                    title="Den Effekt 'Sustained Hits X' nutzen, indem die Anzahl der zusätzlichen Treffer eingetragen wird.">Sustained
+                    Hits X</label>
+            </div>
+        </additionalEffectsArea>
         <div class="ButtonDiv">
             <button class="calculateButton" onclick="checkFields('')">Ausrechnen!</button>
             <button class="ResetButton" onclick="reset('')">Reset</button>
@@ -115,17 +127,48 @@
         </div>
     </main>
     <section>
-        <input type="checkbox" id="lethalHitsCheck2"> <label for="lethalHitsCheck2" class="HoverQuestionmark"
+
+        <!-- <input type="checkbox" id="lethalHitsCheck2"> <label for="lethalHitsCheck2" class="HoverQuestionmark"
             title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
             Hits</label>
         <input type="checkbox" id="devastatingWoundsCheck2"> <label for="devastatingWoundsCheck2"
             class="HoverQuestionmark"
             title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal Wound)">Devastating
             Wounds</label>
+        <input id="sustainedHitsNumber2" placeholder="SHX" maxlength="1" type="number" min="0" value="0">
         <div class="ButtonDiv">
             <button class="calculateButton" onclick="checkFields('2')">Ausrechnen!</button>
             <button class="ResetButton" onclick="reset('2')">Reset</button>
+        </div> -->
+
+
+        <additionalEffectsArea>
+            <div>
+                <input type="checkbox" id="lethalHitsCheck2">
+                <label for="lethalHitsCheck2" class="HoverQuestionmark"
+                    title="Den Effekt von &quot;Lethal Hits&quot; aktivieren. (Hit Roll von 6 = automatische Wunde)">Lethal
+                    Hits</label>
+            </div>
+            <div>
+                <input type="checkbox" id="devastatingWoundsCheck2">
+                <label for="devastatingWoundsCheck2" class="HoverQuestionmark"
+                    title="Den Effekt von &quot;Devastating Wounds&quot; aktiviren (Wund-Roll von 6 = Mortal wund)">Devastating
+                    Wounds</label>
+            </div>
+            <div>
+                <input id="sustainedHitsNumber2" placeholder="SH X" maxlength="1" type="number" min="0" value="0">
+                <label for="sustainedHitsNumber2" class="HoverQuestionmark"
+                    title="Den Effekt 'Sustained Hits X' nutzen, indem die Anzahl der zusätzlichen Treffer eingetragen wird.">Sustained
+                    Hits X</label>
+            </div>
+        </additionalEffectsArea>
+        <div class="ButtonDiv">
+            <button class="calculateButton" onclick="checkFields('2')">Ausrechnen!</button>
+            <button class="ResetButton" onclick="reset('2')">Reset</button>
+
         </div>
+
+
         <p id="resultTag2">Ergebnis</p>
     </section>
 
